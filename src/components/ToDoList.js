@@ -7,24 +7,24 @@ function ToDoList() {
     return (
         <List>
                 <ListItem>
-                    {/* <input type="radio" id="html" name="fav_language" value="HTML" /> */}
-                    <img src="/images/icon-check.svg" />
-                    <p>Jog Around the Park 3x</p>
+                    <input type="radio" id="task-4" name="task4" value="HTML" />
+                  
+                    <label for="task-4" >Jog Around the Park 3x</label>
                     <img src="/images/icon-cross.svg" />  
                 </ListItem>
                 <ListItem>
-                    <input type="radio" id="html" name="fav_language" value="HTML" />
-                    <p>Jog Around the Park 3x</p>
+                    <input type="radio" id="task-1" name="task1" value="Jog Around the Park 3x" />
+                    <label for="task-1">Jog Around the Park 3x</label>
                     <img src="/images/icon-cross.svg" />  
                 </ListItem>
                 <ListItem>
-                    <input type="radio" id="html" name="fav_language" value="HTML" />
-                    <p>Jog Around the Park 3x</p>
+                    <input type="radio" id="task-2" name="task2" value="Jog Around the Park 3x" />
+                    <label for="task-2">Jog Around the Park 3x</label>
                     <img src="/images/icon-cross.svg" />  
                 </ListItem>
                 <ListItem>
-                    <input type="radio" id="html" name="fav_language" value="HTML" />
-                    <p>Jog Around the Park 3x</p>
+                <input type="radio" id="task-3" name="task3" value="Jog Around the Park 3x" />
+                    <label for="task-3">Jog Around the Park 3x</label>
                     <img src="/images/icon-cross.svg" />  
                 </ListItem>
                
@@ -49,7 +49,7 @@ export default ToDoList
 
 
 const List = styled.div`
-
+box-shadow: 2px 24px 24px -4px rgba(0,0,0,0.7);
     margin-top:2rem;
     border-radius:5px;
 
@@ -63,9 +63,15 @@ const ListItem =styled.div`
     color:white;
     font-size:20px;
     font-family: 'Raleway', sans-serif;
-    padding:10px 40px;
+    padding:25px 36px;
 
-    p{
+    input[type="radio"]
+    {
+        height: 1.25rem;
+        width: 1.25rem;
+        margin-right: 1rem;
+    }
+    label{
         flex:1;
         cursor:pointer;
     }
