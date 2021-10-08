@@ -1,5 +1,6 @@
 import styled from "styled-components";
-
+import Input from "./Input";
+import ToDoList from "./ToDoList";
 
 
 const Container =()=>{
@@ -10,6 +11,8 @@ return (
                     <h1>TODO</h1>
                     <img src="/images/icon-sun.svg"></img>
             </ToDoHead>
+            <Input />
+            <ToDoList />
         </MainContainter>
 )
 
@@ -17,12 +20,25 @@ return (
 
 export default Container;
 const MainContainter =styled.div`
-
-        background-color:red;
-        width:40vw;
+        box-sizing:border-box;
+       
+        width:40%;
         display:flex;
+        marign-top:-2rem;
         justify-content:center;
         margin:0 auto;
+        flex-direction:column;
+        position:absolute;
+        top:3rem;
+        left:0;
+        right:0;
+     
+        h1{
+            color:white;
+        }
+        
+      
+      
 `;
 
 
