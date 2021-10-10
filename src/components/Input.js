@@ -1,16 +1,49 @@
 import styled from "styled-components";
+import { useState } from "react";
+import { connect } from "react-redux";
+import moment from "moment";
+import { addTask } from "../actions/toDoAction";
+const Input = (props)=>{
+    const [initalTask,setTask] = useState('');
 
+    const TaskHandler =(e)=>{
+        setTask(e.target.value);
+    };
+    // const enterHandler =(e)=>{
+     
+    //     if(e.key === "Enter")
+    //     {
+    //         props.dispatch(addTask({task:e.target.value,createAt:moment().format(),isActive:true,isCompleted:false}));
+    //     }
+    // }
+       
+    const TaskInputHandler =(e)=>{
 
-const Input = ()=>{
+        e.preventDefault();
+
+    };
+
+    const eventHandler =(e)=>{
+
+        if(e.key === "Enter")
+        {
+            props.dispatch(addTask({task:initalTask,createAt:moment().format(),isActive:true,isCompleted:false}));
+
+            setTask('');
+        }
+
+    };
+
     return(
-        <Form autocomplete="off">
-            <input type="text" id="todo" placeholder="Enter Your Task" />
+        <Form onSubmit={TaskInputHandler} onKeyDown={eventHandler}>
+            <input type="text" id="todo" value={initalTask} placeholder="Enter Your Task" autoFocus onChange={TaskHandler}/>
         </Form>
     )
 };
 
 
-export default Input;
+
+export default connect()(Input);
 
 
 const Form = styled.form`

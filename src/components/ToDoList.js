@@ -1,37 +1,36 @@
 import styled from "styled-components";
-
-
 import React from 'react'
-
-function ToDoList() {
+import { connect } from "react-redux";
+import ListItem from "./ListItem";
+function ToDoList(props) {
     return (
+          
         <List>
-                <ListItem>
-                    <input type="radio" id="task-4" name="task4" value="HTML" />
-                  
-                    <label for="task-4" >Jog Around the Park 3x</label>
-                    <img src="/images/icon-cross.svg" />  
-                </ListItem>
-                <ListItem>
+              {props.tasks.map(task=> {
+                          return  <ListItem  key={task.id} tasks={task}/>
+              
+              })}
+                 
+                {/* <ListItem>
                     <input type="radio" id="task-1" name="task1" value="Jog Around the Park 3x" />
-                    <label for="task-1">Jog Around the Park 3x</label>
+                    <label htmlFor="task-1">Jog Around the Park 3x</label>
                     <img src="/images/icon-cross.svg" />  
                 </ListItem>
                 <ListItem>
                     <input type="radio" id="task-2" name="task2" value="Jog Around the Park 3x" />
-                    <label for="task-2">Jog Around the Park 3x</label>
+                    <label htmlFor="task-2">Jog Around the Park 3x</label>
                     <img src="/images/icon-cross.svg" />  
                 </ListItem>
                 <ListItem>
                 <input type="radio" id="task-3" name="task3" value="Jog Around the Park 3x" />
-                    <label for="task-3">Jog Around the Park 3x</label>
+                    <label htmlFor="task-3">Jog Around the Park 3x</label>
                     <img src="/images/icon-cross.svg" />  
-                </ListItem>
+                </ListItem> */}
                
         
         <ListData>
-                <p>5 items left</p>
-            <span class="task_controls">     
+                <p>{props.tasks.length} items left</p>
+            <span className="task_controls">     
                 <p>All</p>
                 <p>Active</p>
                 <p>Completed</p>
@@ -44,7 +43,15 @@ function ToDoList() {
     )
 }
 
-export default ToDoList
+
+const mapStateToProps=(state)=>{
+    return {
+        tasks:state.todoTask
+    };
+};
+export default connect(mapStateToProps)(ToDoList);
+
+
 
 
 
@@ -53,29 +60,6 @@ box-shadow: 2px 24px 24px -4px rgba(0,0,0,0.7);
     margin-top:2rem;
     border-radius:5px;
 
-`;
-const ListItem =styled.div`
-    
-    display:flex;
-    align-items:center;
-    background-color:#25273c;
-    border-bottom:1px solid #383a51;
-    color:white;
-    font-size:20px;
-    font-family: 'Raleway', sans-serif;
-    padding:25px 36px;
-
-    input[type="radio"]
-    {
-        height: 1.25rem;
-        width: 1.25rem;
-        margin-right: 1rem;
-    }
-    label{
-        flex:1;
-        cursor:pointer;
-    }
-   
 `;
 
 
